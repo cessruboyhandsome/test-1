@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-page Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message" id="message">.. .... .- ...- . / .-.. .. ...- . -.. / .. -. / - .... . / -. --- .-. - .... . .-. -. / .-. . --. .. --- -.</div>
+    <button onclick="nextPage()">หน้าถัดไป</button>
+
+    <script>
+        let currentPage = 0;
+        const messages = [
+            ".. .... .- ...- . / .-.. .. ...- . -.. / .. -. / - .... . / -. --- .-. - .... . .-. -. / .-. . --. .. --- -.",
+            "01110011 01101001 01101110 01100011 01100101 00100000 01001001 00100000 01110111 01100001 01110011 00100000 01100001 00100000 01100011 01101000 01101001 01101100 01100100",
+            ".- -. -.. / -- --- ...- . -.. / -... .- -.-. -.- / - --- / -... .- -. --. -.- --- -.-",
+            "01100001 00100000 01101100 01101001 01110100 01110100 01101100 01100101 00100000 01101111 01110110 01100101 01110010 00100000 00110010 00100000 01111001 01100101 01100001 01110010 01110011 00100000 01100001 01100111 01101111"
+        ];
+
+        function nextPage() {
+            currentPage = (currentPage + 1) % messages.length;
+            document.getElementById('message').textContent = messages[currentPage];
+        }
+    </script>
+</body>
+</html>
